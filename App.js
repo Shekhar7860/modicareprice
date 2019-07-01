@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet, View, Text } from 'react-native';
+import { FlatList, StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 // Import getNews from news.js
 import { getNews } from './src/news';
@@ -73,26 +73,38 @@ export default class App extends React.Component {
     return (
       <View style={styles.mainContainer}>
                <View style={styles.toolbar}>
-                    <Text style={styles.toolbarButton}>Add</Text>
-                    <Text style={styles.toolbarTitle}>This is the title</Text>
-                    <Text style={styles.toolbarButton}>Like</Text>
+                    <Text style={styles.toolbarButton}></Text>
+                    <Text style={styles.toolbarTitle}>Home</Text>
+                    <Text style={styles.toolbarButton}></Text>
                 </View>
                 <View style={styles.content}>
   
                     {/* START NEW CODE */}
  
                     <View style={styles.messageBox}>
-                        <View>
-                            <Text style={styles.messageBoxTitleText}>A simple mesage</Text>
-                        </View>
-                        <View>
-                            <Text style={styles.messageBoxBodyText}>This is just a dummy sample it will help us to see the alignment in action.</Text>
-                        </View>
+                       
+                            <Text style={styles.topText}>Welcome Mesage</Text>
+                       
+                            <Text style={styles.messageBoxBodyText}>Hello everyone, Here is an application that can help you knowing about specific prices list, business volume points and quantity of modicare products. You can check the pictures of products as well as search for a specific modicare product. All of these products are available at the modicare distribution point. So, To get started, click on the button below</Text>
+                            <TouchableHighlight style={styles.fullWidthButton} onPress={this.buttonPressed}>
+            <Text style={styles.fullWidthButtonText}>Let's get started</Text>
+            </TouchableHighlight>
+            <Text style={styles.messageBoxBodyText2}>If you have any query related to modicare, you can call me +919646407363</Text>
                     </View>
+                    {/* <View style={styles.inputsContainer}>
+          
+</View> */}
 
+                       
+                          
+                       
+                        
+                       
+     
               {/* END NEW CODE */}
   
                 </View>
+
             </View>
       // <FlatList
       //   data={this.state.articles}
@@ -109,7 +121,7 @@ export default class App extends React.Component {
 var styles = StyleSheet.create({
   toolbar:{
       backgroundColor:'#81c04d',
-      paddingTop:30,
+      paddingTop:20,
       paddingBottom:10,
       flexDirection:'row'    //Step 1
   },
@@ -122,7 +134,8 @@ var styles = StyleSheet.create({
       color:'#fff',
       textAlign:'center',
       fontWeight:'bold',
-      flex:1                //Step 3
+      flex:1,
+      fontSize:20                //Step 3
   },
   mainContainer:{
     flex:1                  //Step 1
@@ -130,5 +143,41 @@ var styles = StyleSheet.create({
 content:{
     backgroundColor:'#ebeef0',
     flex:1                //Step 2
+},
+messageBox:{
+  alignItems : 'center'
+},
+messageBoxBodyText:{
+  margin:10,
+  fontSize:15
+},
+messageBoxBodyText2:{
+  margin:10,
+  fontSize:18
+},
+topText:{
+  fontSize:20,
+  marginTop : 10
+},
+topText2:{
+  fontSize:20,
+  marginTop : 10,
+  marginLeft:10
+},
+inputsContainer: {
+  flex: 1,
+  alignItems : 'center'
+},
+fullWidthButton: {
+  backgroundColor: 'blue',
+  height:70,
+  width:'80%',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center'
+},
+fullWidthButtonText: {
+  fontSize:24,
+  color: 'white'
 }
 });
